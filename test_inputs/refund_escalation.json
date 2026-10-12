@@ -1,0 +1,22 @@
+{
+  "entry": [
+    {
+      "changes": [
+        {
+          "value": {
+            "messages": [
+              {
+                "id": "wamid.DEMO-REFUND-1",
+                "from": "2348000000004",
+                "type": "text",
+                "text": {
+                  "body": "I want a refund, the item was damaged"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "entry": [
+    {
+      "changes": [
+        {
+          "value": {
+            "messages": [
+              {
+                "id": "wamid.DEMO-ORDER-1",
+                "from": "2348000000001",
+                "type": "text",
+                "text": {
+                  "body": "Where is my order ORD-1001?"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

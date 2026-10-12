@@ -1,0 +1,22 @@
+{
+  "entry": [
+    {
+      "changes": [
+        {
+          "value": {
+            "messages": [
+              {
+                "id": "wamid.DEMO-DELIV-1",
+                "from": "2348000000003",
+                "type": "text",
+                "text": {
+                  "body": "How long is delivery to Benin City?"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

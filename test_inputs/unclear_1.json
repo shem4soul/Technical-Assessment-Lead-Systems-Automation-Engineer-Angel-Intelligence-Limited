@@ -1,0 +1,22 @@
+{
+  "entry": [
+    {
+      "changes": [
+        {
+          "value": {
+            "messages": [
+              {
+                "id": "wamid.DEMO-UNCLEAR-1",
+                "from": "2348000000005",
+                "type": "text",
+                "text": {
+                  "body": "hmm"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

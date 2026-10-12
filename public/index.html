@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ops Dashboard</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:0;padding:16px;background:#f6f7f9;color:#1a1a1a}
+h1{font-size:20px;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.card{background:#fff;border-radius:8px;padding:12px;box-shadow:0 1px 2px #0002}
+.card b{display:block;font-size:24px}.card span{font-size:12px;color:#555}
+.warn b{color:#b42318}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;font-size:13px}
+th,td{padding:6px 8px;text-align:left;border-bottom:1px solid #eee}
+.wrap{overflow-x:auto}
+</style></head><body>
+<h1>Zuri Gadgets &amp; Wears: Operations Dashboard</h1>
+<div class="grid" id="cards"></div>
+<h3>Requests by intent</h3><div class="wrap"><table id="intents"></table></div>
+<h3>Recent activity (audit log)</h3><div class="wrap"><table id="events"></table></div>
+<script>
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+async function load(){
+  const [s,e]=await Promise.all([fetch("/api/stats").then(r=>r.json()),fetch("/api/events").then(r=>r.json())]);
+  const c=(l,v,w)=>`<div class="card ${w?"warn":""}"><b>${v}</b><span>${l}</span></div>`;
+  cards.innerHTML=c("Messages",s.total_messages)+c("Auto-replied",s.auto_replied)+c("Escalated",s.escalated)+
+    c("Escalation rate",s.escalation_rate+"%")+c("Unresolved",s.unresolved_conversations,s.unresolved_conversations>0)+
+    c("Duplicates ignored",s.duplicates_ignored)+c("Alerts pending",s.pending_alerts,s.pending_alerts>0);
+  intents.innerHTML="<tr><th>Intent</th><th>Count</th></tr>"+s.by_intent.map(i=>`<tr><td>${esc(i.intent)}</td><td>${i.n}</td></tr>`).join("");
+  events.innerHTML="<tr><th>Time</th><th>Event</th><th>Phone</th><th>Intent</th><th>Detail</th></tr>"+
+    e.slice(0,25).map(x=>`<tr><td>${esc(x.ts.slice(11,19))}</td><td>${esc(x.event)}</td><td>${esc(x.phone)}</td><td>${esc(x.intent)}</td><td>${esc(x.detail)}</td></tr>`).join("");
+}
+load();setInterval(load,5000);
+</script></body></html>

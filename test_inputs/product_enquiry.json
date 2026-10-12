@@ -1,0 +1,22 @@
+{
+  "entry": [
+    {
+      "changes": [
+        {
+          "value": {
+            "messages": [
+              {
+                "id": "wamid.DEMO-PROD-1",
+                "from": "2348000000002",
+                "type": "text",
+                "text": {
+                  "body": "How much is the wireless earbuds?"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
