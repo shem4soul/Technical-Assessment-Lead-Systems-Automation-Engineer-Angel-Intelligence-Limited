@@ -8,6 +8,13 @@ A WhatsApp-style automation system that answers routine customer enquiries insta
 
 > **Status:** assessment prototype using synthetic data only. Not deployed to any third-party production environment.
 
+## 🎥 Demo Video
+
+Watch the project demonstration here:
+
+[**▶ Watch the Demo Video**](https://drive.google.com/file/d/1iYWQQrl_IIF_6Fh96ychJqUH7DjgW8Vt/view?usp=sharing)
+
+
 ---
 
 ## Contents
